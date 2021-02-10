@@ -1,0 +1,18 @@
+#zsh installation
+# arch linux
+# zsh zsh-completions
+
+#oh_my_zsh github repo
+# https://github.com/robbyrussell/oh-my-zsh
+
+#installation
+# via curl
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" 
+
+# via wget
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+#theme
+# ZSH_THEME="robbyrussell"
+# ZSH_THEME="agnoster"
+# ZSH_THEME="philips"

@@ -1,0 +1,2 @@
+# from https://github.com/Mayccoll/Gogh
+bash -c  "$(wget -qO- https://git.io/vQgMr)"
