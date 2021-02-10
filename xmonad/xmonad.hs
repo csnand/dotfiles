@@ -8,7 +8,6 @@
 --
 
 import XMonad
-import Data.Monoid
 import System.Exit
 
 import XMonad.Util.Run
@@ -21,6 +20,8 @@ import qualified Data.Map        as M
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
+
+myTerminal :: [Char]
 myTerminal      = "alacritty"
 
 -- Whether focus follows the mouse pointer.
@@ -33,6 +34,7 @@ myClickJustFocuses = False
 
 -- Width of the window border in pixels.
 --
+myBorderWidth :: Dimension
 myBorderWidth   = 1
 
 -- modMask lets you specify which modkey you want to use. The default
@@ -40,6 +42,7 @@ myBorderWidth   = 1
 -- ("right alt"), which does not conflict with emacs keybindings. The
 -- "windows key" is usually mod4Mask.
 --
+myModMask :: KeyMask
 myModMask       = mod4Mask
 
 -- The default number of workspaces (virtual screens) and their names.
@@ -51,16 +54,21 @@ myModMask       = mod4Mask
 --
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
+myWorkspaces :: [[Char]]
 myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
+myNormalBorderColor :: [Char]
 myNormalBorderColor  = "#03a9f4"
+
+myFocusedBorderColor :: [Char]
 myFocusedBorderColor = "#fafafa"
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
 --
+myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- launch a terminal
@@ -158,6 +166,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 ------------------------------------------------------------------------
 -- Mouse bindings: default actions bound to mouse events
 --
+myMouseBindings :: XConfig l -> M.Map (KeyMask, Button) (Window -> X ())
 myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- mod-button1, Set the window to floating mode and move by dragging
@@ -188,6 +197,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- Then add avoidStruts or avoidStrutsOn layout modifier to
 -- layout to prevent windows from overlapping these windows.
 --
+
 myLayout = avoidStruts ( tiled ||| Mirror tiled ||| Full )
   where
      -- default tiling algorithm partitions the screen into two panes
@@ -260,7 +270,7 @@ myStartupHook = do
 -- Run xmonad with the settings you specify. No need to modify this.
 --
 main = do
-  xmproc <- spawnPipe "xmobar -x 0 ~/.xmonad/xmobarrc"
+  xmproc <- spawnPipe "xmobar -x 0 ~/.xmonad/xmobar.config"
   xmonad $ docks defaults
 
 -- A structure containing your configuration settings, overriding
