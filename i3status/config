@@ -30,7 +30,7 @@ format = " %usage"
 
 
 wireless _first_ {
-        format_up = "W: (%quality at %essid) %ip"
+        format_up = "W:(%quality at %essid)%ip"
         format_down = "W: down"
 }
 
@@ -52,7 +52,7 @@ load {
 }
 
 memory {
-        format = "%used | %available"
+        format = "%used|%available"
         threshold_degraded = "1G"
         format_degraded = "MEMORY < %available"
 }
