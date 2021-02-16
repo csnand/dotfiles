@@ -17,7 +17,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 10
+font pango:monospace 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -219,6 +219,30 @@ mode "$mode_system" {
 }
 bindsym $mod+0 mode "$mode_system"
 
+
+# multimonitor display settings
+set $set_display Display: (d)Duplicate | Extend: (r)right - (l)left | Only: (x)external - (i)integrated
+
+bindsym $mod+Shift+d mode "$set_display"
+
+mode "$set_display" {
+     bindsym r exec xrandr --output LVDS --auto --output DFP1 --auto --right-of LVDS, mode "default"
+     bindsym l exec xrandr --output LVDS --auto --output DFP1 --auto --left-of LVDS, mode "default"
+     bindsym d exec xrandr --output LVDS --auto --output DFP1 --auto --same-as LVDS, mode "default"
+     bindsym i exec xrandr --output DFP1 --off --output LVDS --auto, mode "default"
+     bindsym x exec xrandr --output DFP1 --auto --output LVDS --off, mode "default"
+     bindsym Return mode "default"
+     bindsym Escape mode "default"
+}
+
+mode "VGA" {
+     bindsym r exec xrandr --output CRT1 --auto --right-of LVDS, mode "default"
+     bindsym l exec xrandr --output CRT1 --auto --left-of LVDS, mode "default"
+     bindsym s exec xrandr --output CRT1 --auto --same-as LVDS, mode "default"
+     bindsym o exec xrandr --output CRT1 --off, mode "default"
+     bindsym Return mode "default"
+     bindsym Escape mode "default"
+}
 
 
 
