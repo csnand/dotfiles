@@ -12,6 +12,9 @@
 # compton compositor
 exec --no-startup-id picom -b
 
+# nm-applet
+exec --no-startup-id nm-applet
+
 
 set $mod Mod4
 
