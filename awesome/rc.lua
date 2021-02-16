@@ -572,7 +572,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Autostarts
 -- awful.spawn.with_shell()
-awful.spawn.with_shell("compton -b")
+awful.spawn.with_shell("picom -b")
 awful.spawn.with_shell("nitrogen --restore")
 
 -- Window gaps
