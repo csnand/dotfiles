@@ -12,10 +12,6 @@
 # compton compositor
 exec --no-startup-id picom -b
 
-# nm-applet
-exec --no-startup-id nm-applet
-
-
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
