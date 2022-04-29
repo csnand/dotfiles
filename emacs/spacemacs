@@ -85,7 +85,6 @@ This function should only modify configuration layer settings."
      helm
      lsp
      git
-     github
      version-control
      treemacs
      docker
@@ -121,7 +120,9 @@ This function should only modify configuration layer settings."
    ;; installs only the used packages but won't delete unused ones. `all'
    ;; installs *all* packages supported by Spacemacs and never uninstalls them.
    ;; (default is `used-only')
-   dotspacemacs-install-packages 'used-only))
+   dotspacemacs-install-packages 'used-only)
+
+  )
 
 (defun dotspacemacs/init ()
   "Initialization:
@@ -528,6 +529,12 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
+
+    (setq url-proxy-services
+   '(("no_proxy" . "^\\(localhost\\|10\\..*\\|192\\.168\\..*\\)")
+     ("http" . "127.0.0.1:1080")
+     ("https" . "127.0.0.1:1080")))
+
   )
 
 (defun dotspacemacs/user-load ()
@@ -568,5 +575,5 @@ before packages are loaded."
 
   )
 
-;; Do not write anything past this comment. This is where Emacs will
+;; Do not write anything past this commen. This is where Emacs will
 ;; auto-generate custom variable definitions.
