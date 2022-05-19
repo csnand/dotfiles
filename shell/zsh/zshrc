@@ -122,8 +122,11 @@ export GOPATH=$HOME/go
 #source "$HOME/.sdkman/bin/sdkman-init.sh"
 #
 # #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-# export SDKMAN_DIR="/home/jackey/.sdkman"
-# [[ -s "/home/jackey/.sdkman/bin/sdkman-init.sh" ]] && source "/home/jackey/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="/home/jackey/.sdkman"
+[[ -s "/home/jackey/.sdkman/bin/sdkman-init.sh" ]] && source "/home/jackey/.sdkman/bin/sdkman-init.sh"
 
 # opam configuration
 test -r /home/jackey/.opam/opam-init/init.zsh && . /home/jackey/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+# add coursier binary path
+export PATH=$PATH:$HOME/.local/share/coursier/bin
